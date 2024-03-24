@@ -1,0 +1,62 @@
+from random import randint
+
+
+def game(quess):
+
+    if quess > n:
+        return print("Слишком много, попробуйте еще раз")
+
+    elif quess < n:
+        return print("Слишком мало, попробуйте еще раз")
+
+    elif quess == n:
+        return print("Вы угадали, поздравляю, дружище!")
+
+
+def is_valid(igrok):
+
+    if igrok.isdigit() is False:
+        return print("Сказано же, число!")
+    else:
+        igrok = int(igrok)
+
+    if igrok > 100 or igrok < 0:
+        return print("Сказано же, от 0 до 100!")
+    else:
+        return game(igrok)
+ 
+
+print("Добро пожаловать в угадайку!")
+print('Вам предложено угадать число от 0 до 100.')
+contin = ''
+
+while contin != 'нет':
+    n = randint(0, 100)
+    counter = 0
+    flag = False
+
+
+    while flag != True:
+        print()
+        print("Вы считаете, что число равно:")
+        number = input()
+        counter += 1
+        is_valid(number)
+
+        if number.isdigit() is True:
+            if int(number) == n:
+                flag = True
+
+
+    print("Ваше количество попыток:", counter)
+    print()
+    print('Хотите сыграть еще раз? Введите да или нет')
+    contin = input()
+
+    while contin != 'да' and contin != 'нет':
+        print()
+        print('Повнимательнее: да или нет!')
+        contin = input()
+
+print()
+print("Было приятно с Вами поиграть. Хорошего Вам дня и отличного настроения!")
